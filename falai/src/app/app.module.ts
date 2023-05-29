@@ -1,4 +1,8 @@
 import { NgModule } from '@angular/core';
+
+import { environment } from '../environments/environment';
+import { environment as environmentProd } from '../environments/environment.prod';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputTextModule } from 'primeng/inputtext';
@@ -34,7 +38,9 @@ import { LoginService } from './core/services/login.service';
   ],
 
   providers: [
-    LoginService
+    LoginService,
+    { provide: 'APP_ENV', useValue: environment },
+    { provide: 'APP_ENV_PROD', useValue: environmentProd }
   ],
 
   bootstrap: [AppComponent]

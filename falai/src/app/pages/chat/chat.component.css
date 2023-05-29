@@ -93,12 +93,14 @@
 }
 
 .historico input {
-    max-width: 280px;
+    max-width: 240px;
     height: 45px;
     border-radius: 15px;
     background-color: #35393E;
     border: none;
     color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
 }
 
 ::ng-deep .historico .p-inputtext{
@@ -178,8 +180,6 @@
 }
 
 .formulario {
-    display: flex;
-    align-items: flex-end;
     background-color: rgb(30, 35, 40);
     color: white;
     max-width: 580px;
@@ -188,9 +188,18 @@
     height: 560px;
 }
 
-.conversa {
-    height: 30px;
-    margin-top: 20px;
+textarea{
+    width: 538px;
+    height: 455px;
+    margin: 20px 20px 0;
+    border: none;
+    resize: none;
+    overflow: hidden;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
 }
 
 .digitar{
@@ -213,6 +222,8 @@
 
 ::ng-deep .mensagem .p-inputtext{
     padding-left: 20px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
 }
 
 ::ng-deep .mensagem .p-inputtext:focus {
@@ -221,18 +232,19 @@
     padding-left: 20px;
 }
 
-.cadastro {
+.enviar {
     font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 a {
     text-decoration: none;
 }
 
-.cadastro i {
+.enviar i {
     text-decoration: none;
     color: #6b737c;
     transition: 0.3s ease-in-out;
@@ -241,7 +253,7 @@ a {
     padding-top: 3px;
 }
 
-.cadastro i:hover {
+.enviar i:hover {
     color: aqua;
     animation: glow 0.2 0.3s forwards ;
 }
