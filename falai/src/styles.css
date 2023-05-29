@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/Inter-Regular.woff') format('woff'),
+         url('assets/fonts/Inter-Regular.woff2') format('woff2');
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-image: linear-gradient(to top right, rgb(46, 27, 53), rgb(15, 20, 30), rgb(15, 20, 30), rgb(16, 32, 73));
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    height: 100vh;
+    overflow: hidden;
+}

@@ -1,0 +1,36 @@
+<div class="background">
+    <div class="container">
+        <div class="header">
+            <img src="../../../assets/image/logotype.png" alt="falai">
+        </div>
+        <hr class="linha">
+        <div class="menu">
+            <div class="titulo">
+                <p>Acessar sua conta</p>
+            </div>
+            <div class="formulario">
+                <div class="usuario p-float-label">
+                    <input pInputText id="usuario" [(ngModel)]="usuario.email"/>
+                    <label htmlFor="usuario">Usuário</label>
+                </div>
+
+                <div class="senha p-float-label">
+                    <input pInputText id="senha" type="password" [(ngModel)]="usuario.senha"/>
+                    <label htmlFor="senha">Senha</label>
+                </div>
+                <p-button class="entrar" label="entrar" (click)="entrar()"></p-button>
+            </div>
+            <div class="vincular_contas">
+                <p>Ou acesse com</p>
+                <div class="botoes">
+                    <p-button class="google"><img src="../../../assets/image/Google.png"></p-button>
+                    <p-button class="facebook"><img src="../../../assets/image/Facebook.png"></p-button>
+                    <p-button class="twitter"><img src="../../../assets/image/Twitter.png"></p-button>
+                </div>
+            </div>
+            <div class="cadastro">
+                <p>Ainda não tem uma conta? <a href="">Cadastre-se</a></p>
+            </div>
+        </div>
+    </div>
+</div>

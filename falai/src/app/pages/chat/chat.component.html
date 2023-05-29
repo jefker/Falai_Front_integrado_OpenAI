@@ -1,0 +1,46 @@
+<div class="background">
+    <div class="container">
+        <div class="header">
+            <div class="card">
+                <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+            </div>
+            <div class="logo">
+                <img src="../../../assets/image/logotype.png" alt="falai">
+            </div>
+        </div>
+        <hr class="linha1">
+        <div class="menu">
+            <div class="historico">
+                <span class="p-input-icon-right">
+                    <i class="pi pi-search"></i>
+                    <input pInputText placeholder="Procurar"/>
+                </span>
+                <div class="perguntas">
+                    <p>HISTÓRICO</p>
+                    <p-button class="botaoPergunta" label="Pergunta 1"></p-button>
+                    <hr class="linha2">
+                    <p-button class="botaoPergunta" label="Pergunta 2"></p-button>
+                    <hr class="linha2">
+                    <p-button class="botaoPergunta" label="Pergunta 3"></p-button>
+                    <hr class="linha2">
+                    <p-button class="botaoPergunta" label="Pergunta 4"></p-button>
+                    <hr class="linha2">
+                </div>
+            </div>
+            <div class="formulario">
+                <div class="conversa">
+
+                </div>
+                <br>
+                <div class="digitar">
+                    <div class="mensagem">
+                        <input pInputText placeholder="O que você gostaria de saber?" id="mensagem"/>
+                    </div>
+                    <div class="cadastro">
+                        <a><i class="pi pi-send"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

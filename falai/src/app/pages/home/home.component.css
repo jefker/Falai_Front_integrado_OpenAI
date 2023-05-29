@@ -1,0 +1,159 @@
+.background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12vh auto;
+    max-width: 900px;
+    max-height: 700px;
+    background-color: hwb(213 21% 75% / 0.6);
+    border-radius: 30px;
+}
+
+.container {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.274);
+    border-radius: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+}
+
+.header img {
+    width: 75px;
+}
+
+hr {
+    width: 897px;
+    margin: 0;
+    border: 0;
+    border-bottom: 2px solid rgb(30, 35, 40);
+}
+
+.menu {
+    background-color: rgb(30, 35, 40);
+    color: white;
+    max-width: 375px;
+    padding: 50px 75px;
+    margin: 0 auto 20px auto;
+    border-radius: 0 0 30px 30px;
+}
+
+.titulo {
+    padding-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario label {
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.usuario {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.senha {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    width: 225px;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #35393E;
+    border: none;
+    color: white;
+}
+
+
+.entrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+::ng-deep .entrar .p-ripple.p-element.p-button.p-component {
+    width: 225px;
+    height: 45px;
+    background-color: #4B5766;
+}
+
+::ng-deep .p-ripple.p-element.p-button.p-component {
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+@keyframes box-glow {
+    from {
+        box-shadow: 0 0 0;
+    }
+    to {
+        box-shadow: 0 0 50px 3px aqua;
+    }
+}
+
+.vincular_contas {
+    padding: 40px 0px;
+    font-size: 12px;
+    text-align: center;
+}
+
+::ng-deep .botoes .p-ripple.p-element.p-button.p-component {
+    width: 55px;
+    height: 50px;
+    background-color: #35393E;
+}
+
+::ng-deep .p-ripple.p-element.p-button.p-component:hover {
+    background-color: aqua;
+    color: #35393E;
+    animation: box-glow 0.2 0.3s forwards;
+}
+
+p-button.facebook {
+    padding: 0 10px
+}
+
+.cadastro {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cadastro a {
+    text-decoration: none;
+    color: aqua;
+    transition: 0.3s ease-in-out;
+}
+
+.cadastro a:hover {
+    color: aqua;
+    animation: glow 0.2 0.3s forwards ;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 0;
+    }
+    to {
+        text-shadow: 1px 1px 30px #a8ffe2;
+    }
+}
+
