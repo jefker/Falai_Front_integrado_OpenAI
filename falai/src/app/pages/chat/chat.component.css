@@ -148,8 +148,8 @@
 
 ::ng-deep .botaoPergunta .p-ripple.p-element.p-button.p-component {
     height: 45px;
-    max-width: 160px;
-    background-color: transparent;    
+    width: 230px;
+    background-color: transparent;
 }
 
 ::ng-deep .p-ripple.p-element.p-button.p-component {
@@ -212,7 +212,7 @@ textarea{
     margin: 0 20px 20px;
 }
 
-.mensagem input {
+.inserirMensagem input {
     width: 500px;
     height: 45px;
     border-radius: 15px;
@@ -221,13 +221,13 @@ textarea{
     color: white;
 }
 
-::ng-deep .mensagem .p-inputtext{
+::ng-deep .inserirMensagem .p-inputtext{
     padding-left: 20px;
     font-size: 14px;
     font-family: 'Inter', sans-serif;
 }
 
-::ng-deep .mensagem .p-inputtext:focus {
+::ng-deep .inserirMensagem .p-inputtext:focus {
     outline: none; /* Remove a borda de foco */
     box-shadow: none; /* Remove o efeito de sombra de foco */
     padding-left: 20px;

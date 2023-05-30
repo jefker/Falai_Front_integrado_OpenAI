@@ -18,15 +18,20 @@ export class ChatComponent {
   items: MenuItem[] = [];
   activeItem: MenuItem | undefined;
 
+
   ngOnInit(): void {    
     this.items = [
       { label: 'CHAT' },
-      { label: 'BLOG' },
-      { label: 'SOBRE' },
-      { label: 'SAIR' }
-  ];
+      { label: 'BLOG', routerLink: '/blog' },
+      { label: 'SOBRE', routerLink: '/sobre' },
+      { label: 'SAIR', routerLink: '' }
+    ];
 
-  this.activeItem = this.items[0];
+    this.activeItem = this.items[0];
+
+    setTimeout(() => {
+      this.showPrompt();
+    }, 2000);
   }
 
   onKeyPress(event: KeyboardEvent) {
@@ -35,19 +40,42 @@ export class ChatComponent {
     }
   }
   
+  showPrompt() {
+    const text = 'Olá! Sou um especialista em publicidade e estou aqui para ajudar você a criar conteúdos incríveis.';
+    let index = 0;
+    const tempoAparicaoletras = 25; // Intervalo em milissegundos entre cada letra aparecer
+  
+    this.resposta.nativeElement.value += 'Falai: ';
+
+    const interval = setInterval(() => {
+      if (index < text.length) {
+        this.resposta.nativeElement.value += text.charAt(index);
+        index++;
+        this.resposta.nativeElement.scrollTop = this.resposta.nativeElement.scrollHeight;
+      } else {
+        clearInterval(interval);
+      }
+    }, tempoAparicaoletras);
+  }
+  
   sendQuestion() {
     const sQuestion = this.mensagem.nativeElement.value;
+    let index = 0;
+    const tempoAparicaoletras = 25;
 
     fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: 'Bearer' + this.OPENAI_API_KEY,
+        Authorization: 'Bearer ' + this.OPENAI_API_KEY,
       },
       body: JSON.stringify({
-        model: 'text-davinci-003',
-        prompt: sQuestion,
+        model: 'gpt-3.5-turbo',
+        messages: [
+          { role: 'system', content: '' },
+          { role: 'user', content: sQuestion }
+        ],
         max_tokens: 1000,
         temperature: 0.4,
       }),
@@ -58,11 +86,30 @@ export class ChatComponent {
           this.resposta.nativeElement.value += '\n'
         }
 
+        if (json.choices?.[0]?.message?.content) {
+          const text = json.choices[0].message.content || 'Sem resposta';
+
+          this.resposta.nativeElement.value += 'Falai: ';
+  
+          const interval = setInterval(() => {
+            if (index < text.length) {
+              this.resposta.nativeElement.value += text.charAt(index);
+              index++;
+              this.resposta.nativeElement.scrollTop = this.resposta.nativeElement.scrollHeight;
+            } else {
+              clearInterval(interval);
+              this.resposta.nativeElement.scrollTop = this.resposta.nativeElement.scrollHeight;
+  
+              this.mensagem.nativeElement.disabled = false;
+              this.mensagem.nativeElement.focus();
+            }
+          }, tempoAparicaoletras);
+        }
+
         if (json.error?.message) {
           this.resposta.nativeElement.value += `Error: ${json.error.message}`;
-        } else if (json.choices?.[0].text) {
-          const text = json.choices[0].text || 'Sem resposta';
-          this.resposta.nativeElement.value += 'Falai: ' + text;
+        } else if (json.choices?.[0]?.message?.content) {
+          const text = json.choices[0].message.content || 'Sem resposta';
         }
 
         this.resposta.nativeElement.scrollTop = this.resposta.nativeElement.scrollHeight;
@@ -78,8 +125,8 @@ export class ChatComponent {
       this.resposta.nativeElement.value += '\n\n';
     }
 
-    this.resposta.nativeElement.value += `Eu: ${sQuestion}\n` ;
-    this.mensagem.nativeElement.style.fontStyle = 'italic';
+    this.resposta.nativeElement.value += 'Eu: ';
+    this.resposta.nativeElement.value += `${sQuestion}\n` ;
     this.mensagem.nativeElement.value = 'Carregando...';
     this.mensagem.nativeElement.disabled = true;
 

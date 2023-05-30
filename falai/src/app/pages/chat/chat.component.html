@@ -1,13 +1,6 @@
 <div class="background">
     <div class="container">
-        <div class="header">
-            <div class="card">
-                <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
-            </div>
-            <div class="logo">
-                <img src="../../../assets/image/logotype.png" alt="falai">
-            </div>
-        </div>
+        <app-header></app-header>
         <hr class="linha1">
         <div class="menu">
             <div class="historico">
@@ -33,8 +26,8 @@
                 </div>
                 <br>
                 <div class="digitar">
-                    <div class="mensagem">
-                        <input #mensagem pInputText id="mensagem" placeholder="O que você gostaria de saber?"/>
+                    <div class="inserirMensagem">
+                        <input #mensagem pInputText id="mensagem" placeholder="O que você gostaria de saber?" (keypress)="onKeyPress($event)"/>
                     </div>
                     <div class="enviar">
                         <a><i class="pi pi-send" (click)="sendQuestion()"></i></a>
