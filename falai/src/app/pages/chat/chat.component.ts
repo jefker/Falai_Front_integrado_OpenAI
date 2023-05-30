@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, asNativeElements } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { environment } from 'src/environments/environment';
 
@@ -6,19 +6,19 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  // template: `<p>URL da API: {{ apiURL }}</p>`,
   styleUrls: ['./chat.component.css']
 })
 
-export class ChatComponent implements OnInit {
+export class ChatComponent {
+  @ViewChild('mensagem') mensagem!: ElementRef<HTMLInputElement>;
+  @ViewChild('resposta') resposta!: ElementRef<HTMLTextAreaElement>;
 
-  // apiUrl = environment.apiBaseUrl;
+  OPENAI_API_KEY = environment.openAiApiKey;
+
   items: MenuItem[] = [];
   activeItem: MenuItem | undefined;
 
-  ngOnInit(): void {
-    // this.chat();
-    
+  ngOnInit(): void {    
     this.items = [
       { label: 'CHAT' },
       { label: 'BLOG' },
@@ -28,29 +28,61 @@ export class ChatComponent implements OnInit {
 
   this.activeItem = this.items[0];
   }
+
+  onKeyPress(event: KeyboardEvent) {
+    if (this.mensagem.nativeElement.value && event.key === 'Enter') {
+      this.sendQuestion();
+    }
+  }
   
-  resposta = document.getElementById("resposta");
-  mensagem = document.getElementById("mensagem");
+  sendQuestion() {
+    const sQuestion = this.mensagem.nativeElement.value;
 
-  // chat() {
-  //   this.mensagem?.addEventListener("keypress", (e) => {     // Verifica se no campo de resposta tem algo,
-  //     if (this.mensagem && e.key === "Enter")                // caso tenha, ao pressionar a tecla "Enter"
-  //     this.enviarMensagem;                                   // chamará a função SendQuestion()
-  //   });
-  // };
-  
-  // const OPEN_AI_KEY = ""; 
+    fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer' + this.OPENAI_API_KEY,
+      },
+      body: JSON.stringify({
+        model: 'text-davinci-003',
+        prompt: sQuestion,
+        max_tokens: 1000,
+        temperature: 0.4,
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        if (this.resposta.nativeElement.value) {
+          this.resposta.nativeElement.value += '\n'
+        }
 
-  // enviarMensagem() {
-  //   var enviarMensagem = this.mensagem;
+        if (json.error?.message) {
+          this.resposta.nativeElement.value += `Error: ${json.error.message}`;
+        } else if (json.choices?.[0].text) {
+          const text = json.choices[0].text || 'Sem resposta';
+          this.resposta.nativeElement.value += 'Falai: ' + text;
+        }
 
-  //   if (this.resposta) this.resposta += '\n\n';
+        this.resposta.nativeElement.scrollTop = this.resposta.nativeElement.scrollHeight;
+      })
+      .catch((error) => console.error('Error:', error))
+      .finally(() => {
+        this.mensagem.nativeElement.value = '';
+        this.mensagem.nativeElement.disabled = false;
+        this.mensagem.nativeElement.focus();
+      });
 
-  //   this.resposta += `Eu: ${enviarMensagem}`;
-  //   this.mensagem = "Carregando...";
-  //   this.mensagem.disabled = true;
+    if (this.resposta.nativeElement.value) {
+      this.resposta.nativeElement.value += '\n\n';
+    }
 
-  //   this.resposta?.scrollTop = this.resposta?.scrollHeight;
-  // }
+    this.resposta.nativeElement.value += `Eu: ${sQuestion}\n` ;
+    this.mensagem.nativeElement.style.fontStyle = 'italic';
+    this.mensagem.nativeElement.value = 'Carregando...';
+    this.mensagem.nativeElement.disabled = true;
 
+    this.resposta.nativeElement.scrollTop = this.resposta.nativeElement.scrollHeight;
+  }
 }

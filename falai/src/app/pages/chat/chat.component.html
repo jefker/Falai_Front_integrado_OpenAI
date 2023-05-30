@@ -29,15 +29,15 @@
             </div>
             <div class="formulario">
                 <div class="conversa">
-                    <textarea id="resposta"></textarea>
+                    <textarea #resposta id="resposta" disabled></textarea>
                 </div>
                 <br>
                 <div class="digitar">
                     <div class="mensagem">
-                        <input pInputText id="mensagem" placeholder="O que você gostaria de saber?" />
+                        <input #mensagem pInputText id="mensagem" placeholder="O que você gostaria de saber?"/>
                     </div>
                     <div class="enviar">
-                        <a><i class="pi pi-send"></i></a>
+                        <a><i class="pi pi-send" (click)="sendQuestion()"></i></a>
                     </div>
                 </div>
             </div>
