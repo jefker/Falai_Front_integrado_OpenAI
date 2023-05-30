@@ -6,6 +6,7 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: HomeComponent },
   { path: 'chat', component: ChatComponent },
   { path: 'blog', component: BlogComponent },
