@@ -17,12 +17,18 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { LoginService } from './core/services/login.service';
+import { BlogComponent } from './pages/blog/blog.component';
+import { SobreComponent } from './pages/sobre/sobre.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ChatComponent
+    ChatComponent,
+    BlogComponent,
+    SobreComponent,
+    HeaderComponent
   ],
 
   imports: [

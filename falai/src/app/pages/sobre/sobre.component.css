@@ -1,0 +1,269 @@
+.background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12vh auto;
+    max-width: 900px;
+    max-height: 677px;
+    background-color: hwb(216 21% 75% / 0.6);
+    border-radius: 30px;
+}
+
+.container {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.274);
+    border-radius: 30px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+}
+
+.card {
+    margin-left: 13px;
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav {
+    background: rgb(38, 43, 50);
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link{
+    background: rgb(38, 43, 50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: transparent;
+    color: aqua;
+    height: 30px;
+    width: 65px;
+    font-weight: bold;
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link{
+    background: rgb(38, 43, 50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: transparent;
+    height: 40px;
+    width: 65px;
+    color: rgb(255, 255, 255, 0.35);
+    font-weight: 400;
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    transition: 0.2s ease-in-out;
+}
+
+::ng-deep .p-tabmenu
+.p-tabmenu-nav .p-tabmenuitem
+.p-menuitem-link:not(.p-disabled):focus {
+    box-shadow: none;
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:hover {
+    color: aqua;
+    animation: glow 0.2 0.3s forwards ;
+}
+
+.logo {
+    margin: auto;
+}
+
+.logo img {
+    width: 75px;
+}
+
+.linha1 {
+    width: 900px;
+    margin: 0;
+    border: 0;
+    border-bottom: 2px solid rgb(30, 35, 40);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.historico input {
+    max-width: 240px;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #35393E;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+::ng-deep .historico .p-inputtext{
+    padding-left: 20px;
+}
+
+::ng-deep .historico .p-inputtext:focus {
+    outline: none; /* Remove a borda de foco */
+    box-shadow: none; /* Remove o efeito de sombra de foco */
+    padding-left: 20px;
+}
+
+.historico {
+    padding: 20px;
+    background-color: rgb(30, 35, 40);
+    border-radius: 0 0 0 30px;
+}
+
+.historico i {
+    padding-right: 5px;
+}
+
+.perguntas {
+    padding-left: 5px;
+}
+
+.perguntas p {
+    color: rgb(255, 255, 255, 0.35);
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 35px 0 10px;
+    margin: 0;
+}
+
+::ng-deep .p-button {
+    padding: 0;
+}
+
+::ng-deep .p-button-label {
+    font-weight: 300;
+    letter-spacing: 0.2px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+::ng-deep .botaoPergunta .p-ripple.p-element.p-button.p-component {
+    height: 45px;
+    max-width: 160px;
+    background-color: transparent;    
+}
+
+::ng-deep .p-ripple.p-element.p-button.p-component {
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+::ng-deep .p-ripple.p-element.p-button.p-component:hover {
+    background-color: transparent;
+    color: aqua;
+    animation: box-glow 0.2 0.3s forwards;
+}
+
+@keyframes box-glow {
+    from {
+        text-shadow: 0 0 0;
+    }
+    to {
+        text-shadow: 1 1 30px #a8ffe2;
+    }
+}
+
+.linha2 {
+    max-width: 230px;
+    padding-top: 0.3rem;
+    margin: 0;
+    border: 0;
+    border-bottom: 1.5px solid rgb(255, 255, 255, 0.35);
+}
+
+.formulario {
+    background-color: rgb(30, 35, 40);
+    color: white;
+    max-width: 580px;
+    margin: 20px;
+    border-radius: 30px;
+    height: 560px;
+}
+
+textarea{
+    width: 538px;
+    height: 455px;
+    margin: 20px 20px 0;
+    border: none;
+    resize: none;
+    overflow: hidden;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+.digitar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #35393E;
+    border-radius: 15px;
+    margin: 0 20px 20px;
+}
+
+.inserirMensagem input {
+    width: 500px;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #35393E;
+    border: none;
+    color: white;
+}
+
+::ng-deep .inserirMensagem .p-inputtext{
+    padding-left: 20px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+::ng-deep .inserirMensagem .p-inputtext:focus {
+    outline: none; /* Remove a borda de foco */
+    box-shadow: none; /* Remove o efeito de sombra de foco */
+    padding-left: 20px;
+}
+
+.enviar {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.enviar i {
+    text-decoration: none;
+    color: #6b737c;
+    transition: 0.3s ease-in-out;
+    padding-left: 5px;
+    padding-right: 18px;
+    padding-top: 3px;
+}
+
+.enviar i:hover {
+    color: aqua;
+    animation: glow 0.2 0.3s forwards ;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 0;
+    }
+    to {
+        text-shadow: 1px 1px 30px #a8ffe2;
+    }
+}

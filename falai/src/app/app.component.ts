@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from './core/services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,17 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
- 
+
   title = 'falai';
 
-  constructor() { }
+  mostrarHeader: boolean = false
 
-  ngOnInit() { }
+  constructor(private loginService: LoginService) { }
+
+  ngOnInit() {
+    this.loginService.mostrarHeader.subscribe(
+      mostrar => this.mostrarHeader = mostrar
+    );
+  }
 
 }
