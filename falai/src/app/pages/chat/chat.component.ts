@@ -60,6 +60,8 @@ export class ChatComponent {
   
   sendQuestion() {
     const sQuestion = this.mensagem.nativeElement.value;
+    const palavrasChave = "Marketing digital, Estratégias de marketing, SEO (Search Engine Optimization), Redes sociais, Conteúdo online, Publicidade digital, Mídias sociais, E-commerce, Análise de dados, Marketing de influência"
+
     let index = 0;
     const tempoAparicaoletras = 25;
 
@@ -74,10 +76,10 @@ export class ChatComponent {
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system', content: '' },
-          { role: 'user', content: sQuestion }
+          { role: 'user', content: palavrasChave + " | " + sQuestion }
         ],
-        max_tokens: 1000,
-        temperature: 0.4,
+        max_tokens: 750,
+        temperature: 0.6,
       }),
     })
       .then((response) => response.json())
