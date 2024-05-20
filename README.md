@@ -22,7 +22,11 @@
 ## 👁 Overview
 
 <ol>
-    https://github.com/jefker/Falai_Front_integrado_OpenAI/assets/64321545/497ecc95-4c69-4023-bc48-f81a27e5a235
+    
+
+https://github.com/jefker/Falai_Front_integrado_OpenAI/assets/64321545/c1012238-d0cd-4b60-a3a0-7d9a40befbad
+
+
 </ol>
     
 <br>
