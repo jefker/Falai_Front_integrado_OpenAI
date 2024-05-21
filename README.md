@@ -39,7 +39,9 @@ Register and create your API key at https://platform.openai.com/api-keys
     <br>
     
 Configure your OpenAi ApiKey on **enviroments** file:
-> **Falai_Front_integrado_OpenAI**/**falai**/**src**/**environments**/**environment.ts**
+```bash
+Falai_Front_integrado_OpenAI/falai/src/environments/environment.ts
+```
 </ol>
 
 <br>
